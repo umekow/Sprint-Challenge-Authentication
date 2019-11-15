@@ -5,7 +5,7 @@ const server = require('../api/server.js');
 
 describe('server.js', () => {
     describe('register endpoint', () => {
-      it('should return 201 status code', async () => {
+      it('should return 400 status code', async () => {
         const expectedStatusCode = 400;
   
         const response = await request(server).post('/api/auth/register');
@@ -17,32 +17,32 @@ describe('server.js', () => {
   
       it('should return an Object', async () => {
         
-        const response = await request(server).get('/api/auth/register');
+        const response = await request(server).post('/api/auth/register');
   
-        expect(response.type).toMatch(/text/); 
+        expect(response.type).toMatch('application/json'); 
       });
   
     
     });
 
-    // describe('register endpoint', () => {
-    //     it('should return 201 status code', async () => {
-    //       const expectedStatusCode = 400;
+    describe('login endpoint', () => {
+        it('should return 500 status code if nothing is sent', async () => {
+          const expectedStatusCode = 500;
     
-    //       const response = await request(server).post('/api/auth/register');
+          const response = await request(server).post('/api/auth/login');
     
-    //       expect(response.status).toBe(expectedStatusCode);
+          expect(response.status).toBe(expectedStatusCode);
     
        
-    //     });
+        });
     
-    //     it('should return array of id', async () => {
+        it('user is able to log in', async () => {
     
-    //       const response = await request(server).get('/api/auth/register');
+          const response = await request(server).post('/api/auth/register').send({"username" : "user1", "password" : "1111"});
     
-    //       expect(response.type).toMatch(/text/i); 
-    //     });
+          expect(200) 
+        });
     
       
-    //   });
+      });
   });
