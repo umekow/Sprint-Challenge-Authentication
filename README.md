@@ -40,11 +40,19 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] What is the purpose of using _sessions_?
 
+    Using sessions allows for persistent information about the user so there is no need for the user to keep reentering information.
+
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
+
+    Bycrpt is a library that hashes passwords so we can store hashed password in databases vs plain text. We can compare the hashed password that is stored on the database to the password being sent to authenticate credentials. 
 
 - [ ] What does bcrypt do to slow down attackers?
 
+    It increases time by using a key derivation function. This slows down hackers' ability to get a user's password
+
 - [ ] What are the three parts of the JSON Web Token?
+
+    1)header 2)payload 3)signature
 
 ## Minimum Viable Product
 
