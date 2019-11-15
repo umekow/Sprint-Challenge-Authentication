@@ -33,6 +33,24 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   const {username, password} = req.body; 
+  
+  Users.find({username})
+  .first()
+  .then(user => {
+    if(user && bcrypt.compareSync(password, user.password)){
+      const token = getJwtToken(user.username); 
+
+      res.status(200).json({
+        message: `Welcome ${user.username}! have a token...`, 
+        token
+      })
+    } else {
+      res.status(401).json({message: "invalid credentials"})
+    }
+  })
+  .catch(error => {
+    res.status(500).json(error)
+  })
 });
 
 const getJwtToken = username => {
