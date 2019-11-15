@@ -40,18 +40,26 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] What is the purpose of using _sessions_?
 
+    Using sessions allows for persistent information about the user so there is no need for the user to keep reentering information.
+
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
+
+    Bycrpt is a library that hashes passwords so we can store hashed password in databases vs plain text. We can compare the hashed password that is stored on the database to the password being sent to authenticate credentials. 
 
 - [ ] What does bcrypt do to slow down attackers?
 
+    It increases time by using a key derivation function. This slows down hackers' ability to get a user's password
+
 - [ ] What are the three parts of the JSON Web Token?
+
+    1)header 2)payload 3)signature
 
 ## Minimum Viable Product
 
 Implement an User Authentication System. Hash user's passwords before saving them to the database. Use `JSON Web Tokens` or `Sessions and Cookies` to persist authentication across requests.
 
-- [ ] Implement the `register` and `login` functionality inside `/auth/auth-router.js`. A `user` has `username` and `password`. Both properties are required.
-- [ ] Implement the `authenticate` middleware inside `/auth/authenticate-middleware.js`.
+- [x] Implement the `regn` functionality inside `/auth/auth-router.js`. A `user` has `username` and `password`. Both properties are required.
+- [x] Implement the `authenticate` middleware inside `/auth/authenticate-middleware.js`.ister` and `logi
 - [ ] Write a **minimum o 2 tests** per API endpoint. Write more tests if you have time.
 
 **Note**: the database already has the users table, but if you run into issues, the migrations are available.
