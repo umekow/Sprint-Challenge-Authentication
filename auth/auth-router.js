@@ -7,13 +7,15 @@ const Users = require('../users/users-model.js');
 
 //endpoints
 router.post('/register', (req, res) => {
-  const {username, password} = req.body; 
+  let user = req.body; 
+
+  const validateResult = validateUser(user)
 
   
 });
 
 router.post('/login', (req, res) => {
-  // implement login
+  const {username, password} = req.body; 
 });
 
 const getJwtToken = username => {
